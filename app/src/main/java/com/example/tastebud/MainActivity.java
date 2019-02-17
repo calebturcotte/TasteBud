@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+<<<<<<< HEAD
+
+=======
     public void buttonOnClick(View v) {
             Button button = (Button) v;
         ((Button) v).setText(count.toString());
@@ -39,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
+<<<<<<< HEAD
+    */
+>>>>>>> 2781597b9cdee088a4084b16d37b236a3a13984d
+=======
 
+>>>>>>> acd40edf499523049d4c26bfd12e33e9390cb719
 
 }
