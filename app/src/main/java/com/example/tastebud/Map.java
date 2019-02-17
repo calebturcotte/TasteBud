@@ -15,6 +15,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 
 public class Map extends AppCompatActivity  implements OnMapReadyCallback {
@@ -92,6 +93,7 @@ public class Map extends AppCompatActivity  implements OnMapReadyCallback {
         gmap = googleMap;
         gmap.setMinZoomPreference(12);
         LatLng ny = new LatLng(45.382376, -75.696263);
+        gmap.addMarker(new MarkerOptions().position(ny).title("Home Base"));
         gmap.moveCamera(CameraUpdateFactory.newLatLng(ny));
     }
 }
