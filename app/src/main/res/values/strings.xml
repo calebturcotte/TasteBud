@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TasteBud</string>
+    <string name="title_activity_map">Map</string>
+    <string name="title_activity_map2">Map2</string>
 </resources>
