@@ -31,14 +31,14 @@ public class MainActivity extends AppCompatActivity {
         ((Button) v).setText(count.toString());
         count++;
     }
-/*
+
     public void sendMessage(View view) {
        Intent intent = new Intent(this, Map.class);
-        EditText editText =  findViewById(R.id.editText);
+        EditText editText =  findViewById(R.id.android_material_design_spinner);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
-    */
+
 
 }
