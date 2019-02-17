@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     String [] SPINNERLIST={"INDIA", "AUSTRALIA", "SOUTH AFRICA", "NEW ZEALAND"};
+    String [] SPINNERLIST2={"RATING", "PRICE", "DISTANCE"};
     Integer count = 0;
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     @Override
@@ -24,11 +25,13 @@ public class MainActivity extends AppCompatActivity {
         MaterialBetterSpinner betterSpinner=(MaterialBetterSpinner)findViewById(R.id.android_material_design_spinner);
         betterSpinner.setAdapter(arrayAdapter);
 
+        ArrayAdapter<String> arrayAdapter2=new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, SPINNERLIST2);
+        MaterialBetterSpinner betterSpinner2=(MaterialBetterSpinner)findViewById(R.id.android_material_design_spinner2);
+        betterSpinner2.setAdapter(arrayAdapter2);
+
     }
 
-<<<<<<< HEAD
 
-=======
     public void buttonOnClick(View v) {
             Button button = (Button) v;
         ((Button) v).setText(count.toString());
@@ -42,11 +45,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
-<<<<<<< HEAD
-    */
->>>>>>> 2781597b9cdee088a4084b16d37b236a3a13984d
-=======
 
->>>>>>> acd40edf499523049d4c26bfd12e33e9390cb719
 
 }

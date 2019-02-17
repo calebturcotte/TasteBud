@@ -13,7 +13,10 @@
             android:name=".Map"
             android:parentActivityName=".MainActivity"
             android:label="@string/title_activity_map"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
