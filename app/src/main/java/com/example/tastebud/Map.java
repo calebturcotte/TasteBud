@@ -10,7 +10,19 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.TextView;
 
-public class Map extends AppCompatActivity {
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.CameraUpdateFactory;
+
+
+public class Map extends AppCompatActivity  implements OnMapReadyCallback {
+
+    private MapView mapView;
+    private GoogleMap gmap;
+
+    private static final String MAP_VIEW_BUNDLE_KEY = "MapViewBundleKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +45,53 @@ public class Map extends AppCompatActivity {
     TextView textView2 = findViewById(R.id.textView2);
     textView2.setText(m2);
 
+    Bundle mapViewBundle = null;
+        if (savedInstanceState != null) {
+            mapViewBundle = savedInstanceState.getBundle(MAP_VIEW_BUNDLE_KEY);
+        }
+
+        mapView = findViewById(R.id.mapView);
+        mapView.onCreate(mapViewBundle);
+        mapView.getMapAsync(this);
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mapView.onResume();
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mapView.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mapView.onStop();
+    }
+    @Override
+    protected void onPause() {
+        mapView.onPause();
+        super.onPause();
+    }
+    @Override
+    protected void onDestroy() {
+        mapView.onDestroy();
+        super.onDestroy();
+    }
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        gmap = googleMap;
+        gmap.setMinZoomPreference(12);
+        LatLng ny = new LatLng(40.7143528, -74.0059731);
+        gmap.moveCamera(CameraUpdateFactory.newLatLng(ny));
+    }
 }
