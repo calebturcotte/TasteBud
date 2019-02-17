@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+
     <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
         android:id="@+id/android_material_design_spinner"
         android:layout_width="match_parent"
@@ -41,6 +43,7 @@
         android:layout_height="68dp"
         android:layout_marginTop="33dp"
         android:layout_marginBottom="16dp"
+        android:background="#800020"
         android:onClick="sendMessage"
         android:text="START"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/colorPrimaryDark"
+            android:background="#800020"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
@@ -70,6 +70,7 @@
             android:layout_marginBottom="25dp"
             android:onClick="onMapSearch"
             android:text="Search"
+            android:background="#800020"
             app:layout_constraintBottom_toTopOf="@+id/mapView"
             app:layout_constraintStart_toStartOf="parent" />
 
