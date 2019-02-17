@@ -12,7 +12,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
 
-    String [] SPINNERLIST={"INDIA", "AUSTRALIA", "SOUTH AFRICA", "NEW ZEALAND"};
+    String [] SPINNERLIST={"INDIAN", "CHINESE", "KOREAN", "ITALIAN"};
     String [] SPINNERLIST2={"RATING", "PRICE", "DISTANCE"};
 
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
