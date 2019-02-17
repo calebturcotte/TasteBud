@@ -2,15 +2,18 @@ package com.example.tastebud;
 
 import android.location.Address;
 import android.location.Geocoder;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 
 import android.content.Intent;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -23,6 +26,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -35,8 +39,8 @@ public class Map extends AppCompatActivity  implements OnMapReadyCallback {
     String url;
     private String m1;
     private String m2;
-
-
+    TextView textView3;
+    private static final String TAG = "Map";
     private static final String MAP_VIEW_BUNDLE_KEY = "MapViewBundleKey";
 
     @Override
@@ -59,8 +63,26 @@ public class Map extends AppCompatActivity  implements OnMapReadyCallback {
     TextView textView2 = findViewById(R.id.textView2);
     textView2.setText(m2);
 
-    TextView textView3 = findViewById(R.id.textView3);
+    textView3 = findViewById(R.id.textView3);
     textView3.setText(m1);
+
+    textView3.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if(actionId == EditorInfo.IME_ACTION_SEARCH  || actionId == EditorInfo.IME_ACTION_DONE || event.getAction() == KeyEvent.KEYCODE_ENTER
+            ||event.getAction() == KeyEvent.ACTION_DOWN){
+                //execute our method for searching
+
+                geoLocate();
+
+            }
+
+
+            return false;
+        }
+
+    });
+
 
     //Google maps stuff
     Bundle mapViewBundle = null;
@@ -106,19 +128,29 @@ public class Map extends AppCompatActivity  implements OnMapReadyCallback {
         mapView.onLowMemory();
     }
 
-    protected String doInBackground(Object... params) {
-        try {
-            Log.d("GetNearbyPlacesData", "doInBackground entered");
-            gmap = (GoogleMap) params[0];
-            url = (String) params[1];
-            DownloadUrl downloadUrl = new DownloadUrl();
-            googlePlacesData = downloadUrl.readUrl(url);
-            Log.d("GooglePlacesReadTask", "doInBackground Exit");
-        } catch (Exception e) {
-            Log.d("GooglePlacesReadTask", e.toString());
+
+    private void geoLocate(){
+        Log.d(TAG, "geoLocate: geolocating");
+
+
+        String searchString = textView3.getText().toString();
+
+        Geocoder geocoder = new Geocoder(Map.this);
+        List<Address> list = new ArrayList<>();
+        try{
+            list = geocoder.getFromLocationName(searchString, 1);
+        }catch(IOException e){
+            Log.e(TAG, "geoLocate: IOException: " + e.getMessage());
+
         }
-        return googlePlacesData;
+        if(list.size() > 0){
+            Address address = list.get(0);
+            Log.d(TAG, "geoLocate: found a location: " + address.toString());
+
+        }
+
     }
+
     private String getUrl(double latitude, double longitude, String nearbyPlace) {
 
 
@@ -135,6 +167,7 @@ public class Map extends AppCompatActivity  implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         gmap = googleMap;
         gmap.setMinZoomPreference(12);
+
         LatLng ny = new LatLng(45.382376, -75.696263);
         url = getUrl(45.382376,-75.696263, m1 );
 
@@ -177,6 +210,7 @@ public class Map extends AppCompatActivity  implements OnMapReadyCallback {
 
     public void onMapSearch(View view) {
         EditText locationSearch =  findViewById(R.id.textView3);
+
         String location = locationSearch.getText().toString();
         List<Address>addressList = null;
 

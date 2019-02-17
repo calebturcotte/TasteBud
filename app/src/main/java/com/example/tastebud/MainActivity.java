@@ -1,13 +1,13 @@
 package com.example.tastebud;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+
+import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,19 +15,18 @@ public class MainActivity extends AppCompatActivity {
     String [] SPINNERLIST={"INDIAN", "CHINESE", "KOREAN", "ITALIAN"};
     String [] SPINNERLIST2={"RATING", "PRICE", "DISTANCE"};
 
-    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
-    public static final String EXTRA_MESSAGE2 = "com.example.myfirstapp.MESSAGE";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, SPINNERLIST);
-        MaterialBetterSpinner betterSpinner=(MaterialBetterSpinner)findViewById(R.id.android_material_design_spinner);
+        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, SPINNERLIST);
+        MaterialBetterSpinner betterSpinner=findViewById(R.id.android_material_design_spinner);
         betterSpinner.setAdapter(arrayAdapter);
 
-        ArrayAdapter<String> arrayAdapter2=new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, SPINNERLIST2);
-        MaterialBetterSpinner betterSpinner2=(MaterialBetterSpinner)findViewById(R.id.android_material_design_spinner2);
+        ArrayAdapter<String> arrayAdapter2=new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, SPINNERLIST2);
+        MaterialBetterSpinner betterSpinner2=findViewById(R.id.android_material_design_spinner2);
         betterSpinner2.setAdapter(arrayAdapter2);
 
     }
