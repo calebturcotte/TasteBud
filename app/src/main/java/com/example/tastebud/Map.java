@@ -19,11 +19,18 @@ public class Map extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-    Intent intent = getIntent();
-    String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
+    Intent intent = getIntent();
+
+    //Message 1
+    String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
     TextView textView = findViewById(R.id.textView);
     textView.setText(message);
+
+    //Message 2
+    String message2 = intent.getStringExtra(MainActivity.EXTRA_MESSAGE2);
+    TextView textView2 = findViewById(R.id.textView2);
+    textView2.setText(message2);
 
 
     }

@@ -14,8 +14,9 @@ public class MainActivity extends AppCompatActivity {
 
     String [] SPINNERLIST={"INDIA", "AUSTRALIA", "SOUTH AFRICA", "NEW ZEALAND"};
     String [] SPINNERLIST2={"RATING", "PRICE", "DISTANCE"};
-    Integer count = 0;
+
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    public static final String EXTRA_MESSAGE2 = "com.example.myfirstapp.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,18 +33,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void buttonOnClick(View v) {
-            Button button = (Button) v;
-        ((Button) v).setText(count.toString());
-        count++;
-    }
 
     public void sendMessage(View view) {
-       Intent intent = new Intent(this, Map.class);
+        Intent intent = new Intent(this, Map.class);
+
+        //Data 1
         EditText editText =  findViewById(R.id.android_material_design_spinner);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
+
+        //Data 2
+        EditText editText2 =  findViewById(R.id.android_material_design_spinner2);
+        String message2 = editText2.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE2, message2);
+
         startActivity(intent);
+
     }
 
 
