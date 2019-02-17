@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import android.content.Intent;
+import android.widget.TextView;
+
 public class Map extends AppCompatActivity {
 
     @Override
@@ -15,7 +18,7 @@ public class Map extends AppCompatActivity {
         setContentView(R.layout.activity_map);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+/*
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -23,7 +26,16 @@ public class Map extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
+
         });
+*/
+    Intent intent = getIntent();
+    String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+
+    TextView textView = findViewById(R.id.textView);
+    textView.setText(message);
+
+
     }
 
 }

@@ -6,21 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="180dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="180dp"
-        android:text="TasteBud"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.134" />
-
     <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
         android:id="@+id/android_material_design_spinner"
         android:layout_width="match_parent"
@@ -28,36 +13,45 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
 
-        android:layout_marginTop="176dp"
-        android:layout_marginBottom="89dp"
         android:hint="Select Cuisine"
         android:textColorHint="#05ab9a"
         app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginLeft="162dp"
-        android:layout_marginEnd="161dp"
-        android:layout_marginRight="161dp"
-        android:layout_marginBottom="77dp"
         android:onClick="buttonOnClick"
         android:text="CRITERIA"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/android_material_design_spinner" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="82dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="175dp"
+        android:layout_height="68dp"
+        android:onClick="sendMessage"
         android:text="START"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="162dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/android_material_design_spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bud" />
 
 </android.support.constraint.ConstraintLayout>
