@@ -53,13 +53,14 @@ public class Map extends AppCompatActivity  implements OnMapReadyCallback {
     //Text Box Stuff
     m1 = extras.getString("m1");
     m2 = extras.getString("m2");
-
     TextView textView = findViewById(R.id.textView);
     textView.setText(m1);
 
     TextView textView2 = findViewById(R.id.textView2);
     textView2.setText(m2);
 
+    TextView textView3 = findViewById(R.id.textView3);
+    textView3.setText(m1);
 
     //Google maps stuff
     Bundle mapViewBundle = null;

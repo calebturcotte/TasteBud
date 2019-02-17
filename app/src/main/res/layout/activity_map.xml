@@ -23,7 +23,8 @@
     <include
         android:id="@+id/include"
         layout="@layout/content_map"
-        android:layout_height="616dp" />
+
+         />
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
