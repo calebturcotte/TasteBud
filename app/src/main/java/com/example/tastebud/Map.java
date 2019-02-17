@@ -175,37 +175,7 @@ public class Map extends AppCompatActivity  implements OnMapReadyCallback {
         gmap.moveCamera(CameraUpdateFactory.newLatLng(ny));
 
         //Nearby Searches
-        /*
-        String url = getUrl(45.382376, -75.696263, "restaurant");
-        Object[] DataTransfer = new Object[2];
-        DataTransfer[0] = gmap;
-        DataTransfer[1] = url;
 
-        GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
-        getNearbyPlacesData.execute(DataTransfer);
-        Toast.makeText(MapsActivity.this,"Nearby Restaurants", Toast.LENGTH_LONG).show();
-
-        List<HashMap<String, String>> nearbyPlacesList = null;
-        DataParser dataParser = new DataParser();
-        nearbyPlacesList =  dataParser.parse(googlePlacesData);
-*/
-
-       /*
-        MarkerOptions markerOptions = new MarkerOptions();
-        HashMap<String, String> googlePlace = nearbyPlacesList.get(0);
-        double lat = Double.parseDouble(googlePlace.get("lat"));
-        double lng = Double.parseDouble(googlePlace.get("lng"));
-        String placeName = googlePlace.get("place_name");
-        String vicinity = googlePlace.get("vicinity");
-        LatLng latLng = new LatLng(lat, lng);
-        markerOptions.position(latLng);
-        markerOptions.title(placeName + " : " + vicinity);
-        gmap.addMarker(markerOptions);
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-        */
-        //move map camera
-        /*gmap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        gmap.animateCamera(CameraUpdateFactory.zoomTo(11));*/
     }
 
     public void onMapSearch(View view) {
