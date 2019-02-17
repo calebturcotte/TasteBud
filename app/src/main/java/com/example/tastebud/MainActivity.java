@@ -36,16 +36,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendMessage(View view) {
         Intent intent = new Intent(this, Map.class);
+        Bundle extras = new Bundle();
 
         //Data 1
         EditText editText =  findViewById(R.id.android_material_design_spinner);
         String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-
-        //Data 2
         EditText editText2 =  findViewById(R.id.android_material_design_spinner2);
         String message2 = editText2.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE2, message2);
+
+        extras.putString("m1", message);
+        extras.putString("m2", message2);
+
+        intent.putExtras(extras);
+
 
         startActivity(intent);
 

@@ -22,15 +22,16 @@ public class Map extends AppCompatActivity {
 
     Intent intent = getIntent();
 
-    //Message 1
-    String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-    TextView textView = findViewById(R.id.textView);
-    textView.setText(message);
+    Bundle extras = intent.getExtras();
 
-    //Message 2
-    String message2 = intent.getStringExtra(MainActivity.EXTRA_MESSAGE2);
+    String m1 = extras.getString("m1");
+    String m2 = extras.getString("m2");
+
+    TextView textView = findViewById(R.id.textView);
+    textView.setText(m1);
+
     TextView textView2 = findViewById(R.id.textView2);
-    textView2.setText(message2);
+    textView2.setText(m2);
 
 
     }
